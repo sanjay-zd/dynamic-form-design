@@ -1,0 +1,13 @@
+.app{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .draggable_elements{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .droppable_container{
+    width: 100%;
+  }
