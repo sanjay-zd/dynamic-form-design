@@ -14,10 +14,10 @@ const App = () => {
   const handleLogin = (username, password) => {
     // Perform authentication logic
     if (
-      (username === 'admin@mail.com' && password === 'admin') ||
-      (username === 'regular@mail.com' && password === 'regular')
+      (username === 'johndoe@example.com' && password === 'test1') ||
+      (username === 'janedoe@example.com' && password === 'test2')
     ) {
-      const role = username === 'admin@mail.com' ? 'admin' : 'regular';
+      const role = username === 'johndoe@example.com' ? 'admin' : 'regular';
       setUser({ username, role });
       navigate('/dashboard')
     } else {
