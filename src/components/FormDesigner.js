@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import "./formdesigner.css";
+import axios from "axios";
 
 // Define the draggable element
 const DraggableElement = ({ id, text, type }) => {
@@ -55,9 +56,14 @@ const DroppableContainer = () => {
 
   const SaveDesign = () => {
     console.log("droppedElements", droppedElements);
-    let formElements = JSON.stringify(droppedElements);
-    localStorage.setItem("formElements", formElements);
+    axios.post(`http://localhost:8000/api/form-design`, droppedElements)
+    .then(res => {
+      console.log('res',res);
+    }).catch((err)=>{
+      console.log(err);
+    })
   };
+
   // console.log("droppedElements", droppedElements);
   return (
     <div

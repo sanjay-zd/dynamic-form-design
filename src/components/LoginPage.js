@@ -6,7 +6,7 @@ const LoginPage = ({ handleLogin }) => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
-    console.log('--------');
+    // console.log('--------');
     e.preventDefault();
     handleLogin(username, password);
   };
@@ -14,7 +14,7 @@ const LoginPage = ({ handleLogin }) => {
   return (
     <div className="login-page">
       <h2>Login Page</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} data-testid="login-form">
         <Form.Group controlId="formUsername">
           <Form.Label>Username</Form.Label>
           <Form.Control
