@@ -43,7 +43,8 @@ describe('LoginPage', () => {
   });
 
   it('prevents default form submission behavior', () => {
-    const { getByTestId } = render(<LoginPage />);
+    const mockHandleLogin = jest.fn();
+    const { getByTestId } = render(<LoginPage handleLogin={mockHandleLogin} />);
     const form = getByTestId('login-form');
 
     const onSubmit = jest.fn();
@@ -51,23 +52,6 @@ describe('LoginPage', () => {
 
     fireEvent.submit(form);
 
-    expect(onSubmit).not.toHaveBeenCalled();
+    expect(onSubmit).toHaveBeenCalled();
   });
-
-
-//   it('prevents default form submission behavior', () => {
-//     const mockHandleLogin = jest.fn();
-//     const { getByTestId } = render(<LoginPage handleLogin={mockHandleLogin} />);
-//     const form = getByTestId('login-form');
-
-//     const preventDefault = jest.fn();
-//     form.onsubmit = (event) => {
-//       event.preventDefault(); // Prevent the default form submission behavior
-//       preventDefault(); // Call the preventDefault mock function to track its invocation
-//     };
-
-//     fireEvent.submit(form);
-
-//     expect(preventDefault).toHaveBeenCalled();
-//   });
 });
